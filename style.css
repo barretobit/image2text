@@ -1,30 +1,17 @@
 :root {
-  color-scheme: light dark;
+  color-scheme: dark;
 
-  --bg: #0f1a12;
-  --surface: #142018;
+  --bg: #050a06;
+  --surface: #0a110a;
   --ink: #5cff66;
   --muted: #3fa84b;
-  --line: #2c5c32;
+  --line: #1f4a22;
   --accent: #33ff33;
-  --accent-ink: #0b1f0b;
+  --accent-ink: #050a06;
   --error: #ff6666;
 
   --font-ui: "VT323", ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
   --font-text: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg: #f2fff3;
-    --surface: #ffffff;
-    --ink: #0f5a15;
-    --muted: #3f8a48;
-    --line: #c9e6cd;
-    --accent: #1fa31f;
-    --accent-ink: #ffffff;
-    --error: #b42318;
-  }
 }
 
 *,
@@ -41,13 +28,13 @@
 
 body {
   margin: 0;
-  background: radial-gradient(ellipse at top, rgba(92, 255, 102, 0.05), transparent 60%), var(--bg);
+  background: radial-gradient(ellipse at top, rgba(92, 255, 102, 0.03), transparent 60%), var(--bg);
   color: var(--ink);
   font-family: var(--font-ui);
   font-size: 2rem;
   line-height: 1.6;
   letter-spacing: 0.01em;
-  text-shadow: 0 0 10px rgba(92, 255, 102, 0.28);
+  text-shadow: 0 0 10px rgba(92, 255, 102, 0.24);
 }
 
 main {
@@ -63,7 +50,7 @@ h1 {
   line-height: 1.2;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  text-shadow: 0 0 12px rgba(92, 255, 102, 0.32);
+  text-shadow: 0 0 12px rgba(92, 255, 102, 0.28);
 }
 
 .intro {
@@ -71,7 +58,7 @@ h1 {
   color: var(--muted);
   font-size: 1.75rem;
   line-height: 1.6;
-  text-shadow: 0 0 6px rgba(63, 168, 75, 0.2);
+  text-shadow: 0 0 6px rgba(63, 168, 75, 0.18);
 }
 
 .drop-zone {
@@ -199,15 +186,15 @@ textarea {
   min-height: 12rem;
   padding: 0.75rem;
   border: 2px solid var(--line);
-  background: repeating-linear-gradient(0deg, rgba(51, 255, 51, 0.01) 0, rgba(51, 255, 51, 0.01) 1px, transparent 1px, transparent 2px), var(--surface);
+  background: repeating-linear-gradient(0deg, rgba(51, 255, 51, 0.006) 0, rgba(51, 255, 51, 0.006) 1px, transparent 1px, transparent 2px), var(--surface);
   color: var(--ink);
   font-family: var(--font-text);
   font-size: 1.125rem;
   line-height: 1.5;
   resize: vertical;
   border-radius: 0;
-  text-shadow: 0 0 4px rgba(51, 255, 51, 0.16);
-  box-shadow: inset 0 0 24px rgba(51, 255, 51, 0.04);
+  text-shadow: 0 0 4px rgba(51, 255, 51, 0.14);
+  box-shadow: inset 0 0 20px rgba(51, 255, 51, 0.03);
 }
 
 button {
