@@ -1,29 +1,29 @@
 :root {
   color-scheme: light dark;
 
-  --bg: #eef2f1;
-  --surface: #ffffff;
-  --ink: #1d2a2e;
-  --muted: #56676c;
-  --line: #c3cfcd;
-  --accent: #0f7b6c;
-  --accent-ink: #ffffff;
-  --error: #b42318;
+  --bg: #0f1a12;
+  --surface: #142018;
+  --ink: #5cff66;
+  --muted: #3fa84b;
+  --line: #2c5c32;
+  --accent: #33ff33;
+  --accent-ink: #0b1f0b;
+  --error: #ff6666;
 
-  --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-ui: "VT323", ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
   --font-text: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --bg: #12191b;
-    --surface: #1a2427;
-    --ink: #e3ebea;
-    --muted: #93a5a8;
-    --line: #34454a;
-    --accent: #3fc1a8;
-    --accent-ink: #0b1f1b;
-    --error: #ff8a80;
+    --bg: #f2fff3;
+    --surface: #ffffff;
+    --ink: #0f5a15;
+    --muted: #3f8a48;
+    --line: #c9e6cd;
+    --accent: #1fa31f;
+    --accent-ink: #ffffff;
+    --error: #b42318;
   }
 }
 
@@ -31,6 +31,8 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
 }
 
 [hidden] {
@@ -39,59 +41,63 @@
 
 body {
   margin: 0;
-  background: var(--bg);
+  background: radial-gradient(ellipse at top, rgba(92, 255, 102, 0.05), transparent 60%), var(--bg);
   color: var(--ink);
   font-family: var(--font-ui);
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 2rem;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  text-shadow: 0 0 10px rgba(92, 255, 102, 0.28);
 }
 
 main {
-  max-width: 46rem;
+  max-width: 56rem;
   margin: 0 auto;
-  padding: 3rem 1.25rem 4rem;
+  padding: 3rem 1.5rem 4rem;
 }
 
 h1 {
   margin: 0;
-  font-size: 2.25rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+  font-size: 3.25rem;
+  font-weight: 400;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 12px rgba(92, 255, 102, 0.32);
 }
 
 .intro {
-  margin: 0.5rem 0 2rem;
+  margin: 0.75rem 0 2rem;
   color: var(--muted);
+  font-size: 1.75rem;
+  line-height: 1.6;
+  text-shadow: 0 0 6px rgba(63, 168, 75, 0.2);
 }
 
-/* Drop zone */
-
 .drop-zone {
-  padding: 1.5rem;
-  border: 2px dashed var(--line);
-  border-radius: 12px;
+  padding: 1.25rem;
+  border: 2px solid var(--line);
   background: var(--surface);
 }
 
 .hint {
   margin: 0;
+  font-size: 1.625rem;
+  line-height: 1.6;
 }
 
 .file-label {
   color: var(--accent);
   text-decoration: underline;
-  text-underline-offset: 0.15em;
+  text-underline-offset: 0.3em;
   cursor: pointer;
 }
 
 .file-label:focus-within {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
-  border-radius: 2px;
 }
 
-/* Visually hidden but still reachable with the keyboard */
 .file-label input {
   position: absolute;
   width: 1px;
@@ -101,16 +107,13 @@ h1 {
   white-space: nowrap;
 }
 
-/* Preview with a scan line while OCR runs */
-
 .preview {
   position: relative;
   display: inline-block;
   max-width: 100%;
   margin: 1.25rem 0 0;
   overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 6px;
+  border: 2px solid var(--line);
 }
 
 .preview img {
@@ -130,15 +133,15 @@ h1 {
   left: 0;
   right: 0;
   top: 0;
-  height: 3px;
+  height: 2px;
   background: var(--accent);
-  box-shadow: 0 0 14px 2px var(--accent);
-  animation: scan 1.4s ease-in-out infinite alternate;
+  box-shadow: 0 0 10px 2px rgba(51, 255, 51, 0.6);
+  animation: scan 1.2s ease-in-out infinite alternate;
 }
 
 @keyframes scan {
   to {
-    top: calc(100% - 3px);
+    top: calc(100% - 2px);
   }
 }
 
@@ -149,41 +152,45 @@ h1 {
   }
 }
 
-/* Language and status */
-
 .toolbar {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem 0.75rem;
+  gap: 0.75rem 1rem;
   margin: 1.5rem 0 1rem;
 }
 
+.toolbar label {
+  font-size: 1.625rem;
+}
+
 select {
-  padding: 0.35rem 0.5rem;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: var(--surface);
+  padding: 0.5rem 0.75rem;
+  border: 2px solid var(--line);
+  background: linear-gradient(180deg, rgba(51, 255, 51, 0.02), transparent), var(--surface);
   color: var(--ink);
   font: inherit;
+  font-size: 1.75rem;
+  border-radius: 0;
+  appearance: none;
+  text-shadow: 0 0 6px rgba(51, 255, 51, 0.18);
 }
 
 .status {
   margin: 0 0 0 auto;
   color: var(--muted);
-  font-size: 0.9375rem;
+  font-size: 1.5rem;
 }
 
 .status.is-error {
   color: var(--error);
 }
 
-/* Output */
-
 .output-label {
   display: block;
-  margin-bottom: 0.375rem;
-  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
 }
 
 textarea {
@@ -191,31 +198,41 @@ textarea {
   width: 100%;
   min-height: 12rem;
   padding: 0.75rem;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: var(--surface);
+  border: 2px solid var(--line);
+  background: repeating-linear-gradient(0deg, rgba(51, 255, 51, 0.01) 0, rgba(51, 255, 51, 0.01) 1px, transparent 1px, transparent 2px), var(--surface);
   color: var(--ink);
   font-family: var(--font-text);
-  font-size: 0.9375rem;
+  font-size: 1.125rem;
   line-height: 1.5;
   resize: vertical;
+  border-radius: 0;
+  text-shadow: 0 0 4px rgba(51, 255, 51, 0.16);
+  box-shadow: inset 0 0 24px rgba(51, 255, 51, 0.04);
 }
 
 button {
   margin-top: 1rem;
-  padding: 0.6rem 1.25rem;
-  border: 0;
-  border-radius: 6px;
-  background: var(--accent);
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--accent);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent), var(--accent);
   color: var(--accent-ink);
   font: inherit;
-  font-weight: 600;
+  font-size: 1.25rem;
+  text-transform: uppercase;
   cursor: pointer;
+  border-radius: 0;
+  box-shadow: 4px 4px 0 0 var(--line), 0 0 12px rgba(51, 255, 51, 0.25);
 }
 
 button:disabled {
   opacity: 0.45;
   cursor: not-allowed;
+  box-shadow: none;
+}
+
+button:not(:disabled):active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 0 var(--line);
 }
 
 select:focus-visible,
@@ -233,5 +250,13 @@ button:focus-visible {
   .status {
     margin-left: 0;
     flex-basis: 100%;
+  }
+
+  body {
+    font-size: 1.25rem;
+  }
+
+  h1 {
+    font-size: 2rem;
   }
 }
